@@ -1,0 +1,24 @@
+function EVALUATE_GUESS(guess, answer):
+    # Start with everything marked as ABSENT
+    result = [ABSENT, ABSENT, ABSENT, ABSENT, ABSENT]
+
+    # Make a pool of letters from the answer 
+    # (so we can "cross off" letters when used)
+    pool = list of characters in answer
+
+    # PASS 1: Exact matches
+    for each position i in guess:
+        if guess[i] == answer[i]:
+            result[i] = CORRECT
+            remove letter at i from pool
+
+    # PASS 2: Present / Absent
+    for each position i in guess:
+        if result[i] is not CORRECT:
+            if guess[i] is in pool:
+                result[i] = PRESENT
+                remove one occurrence of guess[i] from pool
+            else:
+                result[i] = ABSENT
+
+    return result

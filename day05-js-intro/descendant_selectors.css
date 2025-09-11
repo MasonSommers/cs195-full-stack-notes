@@ -1,0 +1,15 @@
+/* All <p> elements */
+p {
+  color: black;
+}
+
+/* Only <p> elements inside <div> */
+div p {
+  color: blue;
+}
+
+/* Only <span> inside <li> inside <ul> */
+ul li span {
+  font-weight: bold;
+}
+

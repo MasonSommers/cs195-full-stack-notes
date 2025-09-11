@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 05 - JavaScript Playground</title>
+</head>
+<body>
+    <h1>Testing Our Wordle Logic</h1>
+    <p>Open the browser console (F12) to see output!</p>
+    
+    <script>
+        function evaluateGuess(guess, target) {
+            let result = [];
+            let targetLetters = target.split('');
+            
+            // First pass: mark correct letters
+            for (let i = 0; i < 5; i++) {
+                if (guess[i] === target[i]) {
+                    result.push('correct');
+                    targetLetters[i] = null;
+                } else {
+                    result.push(null);
+                }
+            }
+            
+            // Second pass: check for present letters
+            for (let i = 0; i < 5; i++) {
+                if (result[i] === null) {
+                    let letterIndex = targetLetters.indexOf(guess[i]);
+                    if (letterIndex !== -1) {
+                        result[i] = 'present';
+                        targetLetters[letterIndex] = null;
+                    } else {
+                        result[i] = 'absent';
+                    }
+                }
+            }
+            
+            return result;
+        }
+        
+        // Test cases
+        console.log("Testing evaluateGuess function:");
+        console.log("WORDS vs WORLD:", evaluateGuess("WORDS", "WORLD"));
+        console.log("HELLO vs WORLD:", evaluateGuess("HELLO", "WORLD"));
+        console.log("WORLD vs WORLD:", evaluateGuess("WORLD", "WORLD"));
+    </script>
+</body>
+</html>
