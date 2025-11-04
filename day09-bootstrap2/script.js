@@ -2,6 +2,7 @@
 document
   .getElementById("checkinForm")
   .addEventListener("submit", function (event) {
+    console.log("in the event listener");
     // Step 1: Stop page refresh!
     event.preventDefault();
 
@@ -28,9 +29,9 @@ function collectFormData() {
   data.ageGroup = document.getElementById("age-group").value;
 
   // Uncomment these when students add the dropdowns:
-  // data.team = document.getElementById("team-select").value;
-  // data.playerName = document.getElementById("player-select").value;
-  // data.comments = document.getElementById("comments").value;
+  data.team = document.getElementById("team-select").value;
+  data.playerName = document.getElementById("player-select").value;
+  //data.comments = document.getElementById("comments").value;
 
   // Collect emotions (checkbox collection)
   data.emotions = []; // Start with empty array
@@ -39,7 +40,6 @@ function collectFormData() {
   if (document.getElementById("red-angry").checked) {
     data.emotions.push("red-angry");
   }
-
   // Students will add these as they build the checkboxes:
   if (
     document.getElementById("yellow-excited") &&

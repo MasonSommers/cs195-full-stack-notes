@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day10 Animations</title>
+    <style>
+      .cell:hover {
+        background: #e0e0e0;
+        transition: background 0.2s;
+      }
+
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.onclick = () => handleClick(i);
+      board.appendChild(cell);
+
+      // continuous actions
+
+      // Run this function every 200 milliseconds
+      const timer = setInterval(() => {
+        moveSnake();
+        updateDisplay();
+      }, 200);
+
+      // Stop it later
+      clearInterval(timer);
+
+      // Wait 1 second, then flip cards back
+      setTimeout(() => {
+        flipCardsBack();
+      }, 1000);
+    </script>
+  </body>
+</html>
